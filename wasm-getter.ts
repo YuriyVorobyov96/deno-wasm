@@ -9,6 +9,11 @@ export class WebAssemblyGetter {
     this.wasmInstancePromise = this.getWasmModuleByPath();
   }
 
+  /**
+   * We open the wasm module, read it into a buffer, create a WebAssembly.Module from the buffer, and
+   * then create a WebAssembly.Instance from the module
+   * @returns A promise of a WebAssembly.Instance object.
+   */
   private async getWasmModuleByPath(): Promise<WebAssembly.Instance> | never {
     try {
       const wasm = await Deno.open(this.pathToWasmModule);
@@ -22,6 +27,11 @@ export class WebAssemblyGetter {
     }
   }
 
+  /**
+   * It returns a function from the WebAssembly module
+   * @param {string} functionName - The name of the function you want to call from the wasm module.
+   * @returns A function from wasm module.
+   */
   public async getFunctionFromModule(functionName: string): Promise<CallableFunction> | never {
     try {
       const wasmInstance = await this.wasmInstancePromise;
