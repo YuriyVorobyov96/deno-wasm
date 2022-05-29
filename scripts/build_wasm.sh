@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ERROR_COLOR='\033[0;31m'
 WARNING_COLOR='\033[33m'
