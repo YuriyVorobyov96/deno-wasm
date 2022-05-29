@@ -9,7 +9,7 @@ export class WebAssemblyGetter {
     this.wasmInstancePromise = this.getWasmModuleByPath();
   }
 
-  private async getWasmModuleByPath() {
+  private async getWasmModuleByPath(): Promise<WebAssembly.Instance> | never {
     try {
       const wasm = await Deno.open(this.pathToWasmModule);
       const buffer = await readAll(wasm);
