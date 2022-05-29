@@ -17,7 +17,7 @@ if [ -f .env ]; then
     EMSDK_COMPILER_PATH="${EMSDK_COMPILER}"
   fi
 
-  $EMSDK_COMPILER_PATH add.c -O3 --no-entry -o add.wasm
+  $EMSDK_COMPILER_PATH math.c -O3 --no-entry -o math.wasm
 else
   echo "${ERROR_COLOR}Provide .env file with path to emsdk${NO_COLOR}"
   exit
